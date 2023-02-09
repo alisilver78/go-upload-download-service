@@ -6,7 +6,8 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func Routes(e *echo.Echo) {
-	frontpanel.Routes(e)
-	backpanel.Routes(e)
+func Routes(apiGroup *echo.Group) {
+	v1Group := apiGroup.Group("/v1")
+	frontpanel.Routes(v1Group)
+	backpanel.Routes(v1Group)
 }

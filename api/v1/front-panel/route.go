@@ -5,8 +5,8 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func Routes(e *echo.Echo) {
-
-	file.Routes(e)
+func Routes(v1Group *echo.Group) {
+	fpG := v1Group.Group("/fp")
+	file.Routes(fpG)
 
 }
