@@ -11,3 +11,10 @@ func fileBaseRoute(c echo.Context) error {
 
 	return c.HTML(http.StatusOK, html)
 }
+
+func fileDownload(c echo.Context) error {
+
+	file := c.Param("file")
+
+	return c.File(file)
+}
