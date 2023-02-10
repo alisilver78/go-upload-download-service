@@ -1,4 +1,4 @@
-module github.com/alisilver78/go-uplod-download-service
+module github.com/alisilver78/go-upload-download-service
 
 go 1.19
 
