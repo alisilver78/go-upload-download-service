@@ -1,7 +1,7 @@
 package frontpanel
 
 import (
-	"github.com/alisilver78/go-uplod-download-service/api/v1/front-panel/file"
+	"github.com/alisilver78/go-upload-download-service/api/v1/front-panel/file"
 	"github.com/labstack/echo/v4"
 )
 

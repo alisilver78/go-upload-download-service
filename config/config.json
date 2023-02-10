@@ -1,0 +1,7 @@
+{
+    "port": "1234",
+    "upload_base_path": "/db/upload",
+    "domain": "localhost",
+    "error_log": false,
+    "access_log":true
+}

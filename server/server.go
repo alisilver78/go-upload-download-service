@@ -1,16 +1,28 @@
 package server
 
 import (
-	"github.com/alisilver78/go-uplod-download-service/api"
+	"fmt"
+
+	"github.com/alisilver78/go-upload-download-service/api"
+	"github.com/alisilver78/go-upload-download-service/configs"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
 
 func Run(e *echo.Echo) {
-	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 
+	//load configs
+	configs.LoadConfig()
+
+	if configs.CFG.ErrorAccessLog {
+		e.Use(middleware.Logger())
+	}
+
+	//load apis
 	api.Routes(e)
 
-	e.Logger.Fatal(e.Start(":1323"))
+	//start server
+	fmt.Printf("server started on http://%s:%s", configs.CFG.Domain, configs.CFG.Port)
+	e.Logger.Fatal(e.Start(fmt.Sprintf("%s:%s", configs.CFG.Domain, configs.CFG.Port)))
 }
